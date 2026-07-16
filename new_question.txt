@@ -1,0 +1,12 @@
+Hi Itzel,
+
+Where is the metadata being held. We're trying to get more insight into how Filebeat handles inodes in a Kubernetes environment, so we can be able to resume logging quickly in future in case this happens again.
+
+In the event that an inode is reused, and Filebeat experienced this again, we'd like to know if it will help to restart the pod. To determine this, we'd like to understand if the log metadata is stored on the pod or on the node. If it's on the pod, we assume that restarting the pod may be help us resume logging, but if it's on the node, this may not be helpful. Please help us clarify this.
+
+Besides restarting the pod, we'd like to learn if there are other ways to clear the metadata for the problematic pod(s) only
+
+Also, is there inode information in the FIlebeat logs? We'd like to be able to substantiate (with proofs) that the issue is related to inode reuse. Currently, we don;t have any empirical facts to proof this point.
+
+Lastly, while we're currently working on the recommended changes per this case notes, which takes time, we'd like to know if there's a possibility of some manual intervention from Elastic that can help ensure the stability of this logging.
+
